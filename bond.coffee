@@ -115,6 +115,7 @@ bond = (obj, property) ->
         callback(returnValues...)
 
   through = ->
+    registerRestore()
     obj[property] = createThroughSpy(previous, this)
     obj[property]
 
