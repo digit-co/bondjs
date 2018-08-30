@@ -1,3 +1,5 @@
+{ deprecate } = require "util"
+
 isFunction = (obj) ->
   typeof obj == 'function'
 
@@ -169,6 +171,9 @@ bond = (obj, property) ->
     'through': through
     'restore': restore
   }
+
+DEPRECATED_MSG = "WARNING: bondjs is no longer maintained, please switch to sinon (See: https://github.com/hellodigit/digit/commit/36909d7d5585e96709722bf9bdba97b6df1aed6b)"
+bond = deprecate(bond, DEPRECATED_MSG)
 
 window.bond = bond if window?
 module.exports = bond if module?.exports
